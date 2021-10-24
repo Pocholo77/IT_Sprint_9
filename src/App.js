@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Youtube from "./api/Youtube";
-import VideoDetail from "./components/VideoDetail/VideoDetail";
-import VideoList from "./components/VideoList/VideoList";
 import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Aside from "./components/Aside/Aside";
+import "./App.css"; 
 
 export default function App() {
   const [state, setState] = useState({
@@ -50,33 +51,31 @@ export default function App() {
   }
 
   function handleVideoSelect(item) {
-
     setState((prev) => {
       return {
         ...prev,
         selectedVideo: item,
       };
     });
+    /* console.log('handelVideoSelect') */
   }
 
   return (
     <div className="App">
-      <Header handleSubmit={handleSubmit}/>
-        
-    
-      {state.selectedVideo && (
-        <VideoDetail
-          item={state.selectedVideo}
+      <Header handleSubmit={handleSubmit} />
+      <div className="app__body">
+        <Main
+          selectedVideo={state.selectedVideo}
           handleFavourite={handleFavourite}
           favourites={state.favourites}
         />
-      )}
-      <VideoList
-        videos={state.videos}
-        handleVideoSelect={handleVideoSelect}
-        favourites={state.favourites}
-        handleFavourite={handleFavourite}
-      />
+        <Aside
+          videos={state.videos}
+          handleVideoSelect={handleVideoSelect}
+          favourites={state.favourites}
+          handleFavourite={handleFavourite}
+        />
+      </div>
     </div>
   );
 }

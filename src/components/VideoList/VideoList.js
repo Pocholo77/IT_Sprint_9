@@ -5,8 +5,8 @@ import VideoItem from "../VideoItem/VideoItem";
 
 
 
-export default function SearchBar({ videos, handleVideoSelect, favourites, handleFavourite}) {
-  //console.log(videos)
+export default function VideoList({ videos, handleVideoSelect, favourites, handleFavourite}) {
+  /* console.log(videos) */
   return (
     <VideoListStyled>
       <ul>
