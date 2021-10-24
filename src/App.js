@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Youtube from "./api/Youtube";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Aside from "./components/Aside/Aside";
 import "./App.css";
+
+// channelId: UCS5QCj182uoBgpVLDckbL3g
 
 export default function App() {
   const [state, setState] = useState({
@@ -12,6 +14,24 @@ export default function App() {
     favourites: JSON.parse(localStorage.getItem("favouritesVids")) || [],
     history: JSON.parse(localStorage.getItem("history")) || [],
   });
+
+  useEffect(()=> {
+    (async ()=>{
+      const responseDefault = await Youtube.get("/search", {
+        params: {
+          channelId: "UCS5QCj182uoBgpVLDckbL3g",
+        },
+      });
+      setState( prev => {
+        return{
+          ...prev,
+          videos: responseDefault.data?.items,
+        }
+      }
+        )
+    })();
+  },[])
+
   //«handleSubmit» i «handleVideoSelect»:
   async function handleSubmit(e) {
     e.preventDefault();
