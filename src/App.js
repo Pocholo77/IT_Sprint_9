@@ -3,13 +3,14 @@ import Youtube from "./api/Youtube";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Aside from "./components/Aside/Aside";
-import "./App.css"; 
+import "./App.css";
 
 export default function App() {
   const [state, setState] = useState({
     videos: [],
     selectedVideo: null,
-    favourites: [],
+    favourites: JSON.parse(localStorage.getItem("favouritesVids")) || [],
+    history: JSON.parse(localStorage.getItem("history")) || [],
   });
   //«handleSubmit» i «handleVideoSelect»:
   async function handleSubmit(e) {
@@ -23,9 +24,12 @@ export default function App() {
     });
 
     setState((prev) => {
+      const hist = [...prev.history, e.target.elements[0].value];
+      localStorage.setItem('history', JSON.stringify(hist))
       return {
         ...prev,
         videos: response.data?.items,
+        history: hist,
       };
     });
     //console.log(state.videos)
@@ -36,12 +40,14 @@ export default function App() {
     setState((prev) => {
       if (prev.favourites.find((vid) => vid === id)) {
         const restFavourites = prev.favourites.filter((vid) => vid !== id);
+        localStorage.setItem("favouriteVids", JSON.stringify(restFavourites));
         return {
           ...prev,
           favourites: restFavourites,
         };
       } else {
         const favVideo = [...prev.favourites, id];
+        localStorage.setItem("favouriteVids", JSON.stringify(favVideo));
         return {
           ...prev,
           favourites: favVideo,
@@ -60,9 +66,19 @@ export default function App() {
     /* console.log('handelVideoSelect') */
   }
 
+  function clearHistory(){
+    setState( prev => {
+      localStorage.removeItem('history')
+      return {
+        ...prev,
+        history: [],
+      }
+    }
+    )}
+
   return (
     <div className="App">
-      <Header handleSubmit={handleSubmit} />
+      <Header handleSubmit={handleSubmit} history={state.history} clearHistory={clearHistory}/>
       <div className="app__body">
         <Main
           selectedVideo={state.selectedVideo}

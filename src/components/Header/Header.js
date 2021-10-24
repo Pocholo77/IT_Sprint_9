@@ -3,8 +3,9 @@ import { HeaderStyled } from "./Header.styled";
 import "./Header.css"; 
 
 import SearchBar from "../SearchBar/SearchBar";
+import History from "../History/History";
 
-export default function Header({ handleSubmit }) {
+export default function Header({ handleSubmit, history, clearHistory }) {
   return (
     <header>
       <HeaderStyled>
@@ -23,6 +24,9 @@ export default function Header({ handleSubmit }) {
                   <li><img src="" alt="X" /></li>
               </nav>
           </div>
+        </div>
+        <div className="header__history">
+         <History history={history} clearHistory={clearHistory}/> 
         </div>
       </HeaderStyled>
     </header>
