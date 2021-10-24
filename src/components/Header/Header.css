@@ -1,20 +1,36 @@
-.header{
-    height: 20vh;
-    display:flex;
+header{
+    height: 10%;
+    padding: 0 10px
+}
+.header-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.header__logo > img{
-    height:80px;
+.header__logo > img {
+    height: 50px;
 }
 
-.header__buttons > nav{
+.header__search{
+    width: 43%;
+}
+
+.header__user-buttons > nav {
     display: flex;
     align-items: center;
     list-style: none;
 }
 
-.header__buttons > nav > li > img{
-    height: 30px;
-    margin: 10px;
+.header__user-buttons > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+     
+}
+.header__user-buttons > ul > li {
+    margin: 0 3px;
+} 
+img {
+    height: 18px;    
 }

@@ -1,11 +1,3 @@
-.app__body{
-    display: flex;
-}
-
-.app__body > main{
-    width: 80%;
-}
-
-.app__body > aside{
-    width: 20%;
+App{
+    width: 100%;
 }
