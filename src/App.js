@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Youtube from "./api/Youtube";
-import SearchBar from "./components/SearchBar/SearchBar";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
 import VideoList from "./components/VideoList/VideoList";
+import Header from "./components/Header/Header";
 
 export default function App() {
   const [state, setState] = useState({
     videos: [],
     selectedVideo: null,
-    favourites: []
+    favourites: [],
   });
   //«handleSubmit» i «handleVideoSelect»:
   async function handleSubmit(e) {
@@ -30,28 +30,26 @@ export default function App() {
     //console.log(state.videos)
   }
 
-  function handleFavourite(id){
+  function handleFavourite(id) {
     /* console.log(id) */
-    setState( prev => {
-      
-      if( prev.favourites.find( vid => vid === id)){
-        const restFavourites = prev.favourites.filter( vid => vid !== id)
+    setState((prev) => {
+      if (prev.favourites.find((vid) => vid === id)) {
+        const restFavourites = prev.favourites.filter((vid) => vid !== id);
         return {
           ...prev,
           favourites: restFavourites,
-        }
-      }else{
-        const favVideo = [...prev.favourites , id];
-        return{
+        };
+      } else {
+        const favVideo = [...prev.favourites, id];
+        return {
           ...prev,
           favourites: favVideo,
-        }
+        };
       }
-    })
+    });
   }
 
   function handleVideoSelect(item) {
-    const id = item.id.videoId;
 
     setState((prev) => {
       return {
@@ -63,10 +61,22 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>App</h1>
-      <SearchBar handleSubmit={handleSubmit} />
-      <VideoList videos={state.videos} handleVideoSelect={handleVideoSelect} favourites={state.favourites} handleFavourite={handleFavourite}/>
-      { state.selectedVideo && <VideoDetail item={state.selectedVideo}  handleFavourite={handleFavourite} favourites={state.favourites}/> }
+      <Header handleSubmit={handleSubmit}/>
+        
+    
+      {state.selectedVideo && (
+        <VideoDetail
+          item={state.selectedVideo}
+          handleFavourite={handleFavourite}
+          favourites={state.favourites}
+        />
+      )}
+      <VideoList
+        videos={state.videos}
+        handleVideoSelect={handleVideoSelect}
+        favourites={state.favourites}
+        handleFavourite={handleFavourite}
+      />
     </div>
   );
 }
