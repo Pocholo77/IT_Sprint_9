@@ -1,0 +1,7 @@
+/* _ul.list{
+
+} */
+ul.grid{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr)
+}
