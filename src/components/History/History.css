@@ -1,0 +1,21 @@
+.history-container{
+    display: flex;
+}
+.history-list{
+    display: flex;
+    list-style-type: none;
+}
+.history-list__item{
+
+    min-width: 50px;
+    margin: 5px;
+    padding: 5px 5px;
+    background-color: #f0f0f0 ;
+    border: 1px solid #c4bebe;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 10px;
+}
+.history-list__button{
+    margin: 5px 
+}
