@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./Header.css";
+import {Link} from 'react-router-dom'
 
 import SearchBar from "../SearchBar/SearchBar";
 import History from "../History/History";
@@ -10,7 +10,9 @@ export default function Header({ handleSubmit, history, clearHistory }) {
     <header>
       <div className="header-container">
         <div className="header__logo">
-          <img src="/img/logo.png" alt="logo" />
+          <Link to="/">
+          <img className="header__logo__img" src="/img/logo.png" alt="logo" />
+          </Link>
         </div>
         <div className="header__search">
           <SearchBar handleSubmit={handleSubmit} />
@@ -18,16 +20,16 @@ export default function Header({ handleSubmit, history, clearHistory }) {
         <div className="header__user-buttons">
           <ul>
             <li>
-              <img src="/img/video.png" alt="" />
+              <img className="header__user-buttons__icons" src="/img/video.png" alt="" />
             </li>
             <li>
-              <img src="/img/grid.png" alt="" />
+              <img className="header__user-buttons__icons" src="/img/grid.png" alt="" />
             </li>
             <li>
-              <img src="/img/bell.png" alt="" />
+              <img className="header__user-buttons__icons" src="/img/bell.png" alt="" />
             </li>
             <li>
-              <img src="/img/logoUser.png" alt="X" />
+              <img className="header__user-buttons__icons" src="/img/logoUser.png" alt="user" />
             </li>
           </ul>
         </div>
