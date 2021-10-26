@@ -1,13 +1,15 @@
 import React from "react";
-import { VideoDetailStyled } from "../VideoDetail/VideoDetail.styled";
+import './VideoDetail.css'
 
 export default function VideoDetail({ item, handleFavourite, favourites }) {
-  /* console.log(item); */
+  console.log('VideoDetail:', item);  
+
   const id = item.id.videoId;
   const { title, channelTitle, description, publishTime } = item.snippet;
-
+ 
   return (
-    <VideoDetailStyled>
+    <div>
+      <h1>VIdeoDetail:</h1>
       <iframe
         width="560"
         height="315"
@@ -38,6 +40,6 @@ export default function VideoDetail({ item, handleFavourite, favourites }) {
         <p>{description}</p>
         <hr />
       </div>
-    </VideoDetailStyled>
+    </div>
   );
 }

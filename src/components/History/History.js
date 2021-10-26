@@ -2,8 +2,8 @@ import React from "react";
 import "./History.css"
 
 export default function History({ history, clearHistory }) {
-  console.log(history);
-
+  console.log('History:', history);
+  //* controlar maximo de array , reverse & splice
   return (
     <div className="history-container">
       <ul className="history-list">
@@ -19,5 +19,5 @@ export default function History({ history, clearHistory }) {
         </button>
       )}
     </div>
-  );
+  ); 
 }

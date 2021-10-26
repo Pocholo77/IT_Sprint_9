@@ -1,15 +1,14 @@
 import React from "react";
-import { VideoListStyled } from "./VideoList.styled";
-
+import './VideoList.css'
 import VideoItem from "../VideoItem/VideoItem";
 
 
 
-export default function VideoList({ videos, handleVideoSelect, favourites, handleFavourite}) {
+export default function VideoList({ videos, handleVideoSelect, favourites, handleFavourite, type="list"}) {
   /* console.log(videos) */
   return (
-    <VideoListStyled>
-      <ul>
+    <div>
+      <ul className={type}>
         {videos.map((vid, index) => {
           return (
  
@@ -20,6 +19,6 @@ export default function VideoList({ videos, handleVideoSelect, favourites, handl
           );
         })}
       </ul>
-    </VideoListStyled>
+    </div>
   );
 }

@@ -1,13 +1,17 @@
+import "./App.css";
 import React, { useEffect, useState } from "react";
 import Youtube from "./api/Youtube";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+ 
 import Header from "./components/Header/Header";
+import Search from "./pages/Search/Search";
+import Home from "./pages/Home/Home";
 import Main from "./components/Main/Main";
-import Aside from "./components/Aside/Aside";
-import "./App.css";
-
+import VideoDetail from "./components/VideoDetail/VideoDetail";
 // channelId: UCS5QCj182uoBgpVLDckbL3g
 
 export default function App() {
+   
   const [state, setState] = useState({
     videos: [],
     selectedVideo: null,
@@ -15,44 +19,47 @@ export default function App() {
     history: JSON.parse(localStorage.getItem("history")) || [],
   });
 
-  useEffect(()=> {
-    (async ()=>{
+  useEffect(() => {
+    (async () => {
       const responseDefault = await Youtube.get("/search", {
         params: {
           channelId: "UCS5QCj182uoBgpVLDckbL3g",
         },
       });
-      setState( prev => {
-        return{
+      setState((prev) => {
+        return {
           ...prev,
           videos: responseDefault.data?.items,
-        }
-      }
-        )
+        };
+      });
     })();
-  },[])
+  }, []);
 
   //«handleSubmit» i «handleVideoSelect»:
   async function handleSubmit(e) {
     e.preventDefault();
+    const value = e.target.elements[0].value;
     //console.log(e.target.elements[0].value);
 
     const response = await Youtube.get("/search", {
       params: {
-        q: e.target.elements[0].value,
+        q: value,
       },
     });
 
     setState((prev) => {
-      const hist = [...prev.history, e.target.elements[0].value];
-      localStorage.setItem('history', JSON.stringify(hist))
+      const hist = [...prev.history, value];
+      localStorage.setItem("history", JSON.stringify(hist));
       return {
         ...prev,
         videos: response.data?.items,
         history: hist,
       };
     });
+
+    /* history.push("/detail") */
     //console.log(state.videos)
+    /*  console.log(history); */
   }
 
   function handleFavourite(id) {
@@ -86,32 +93,71 @@ export default function App() {
     /* console.log('handelVideoSelect') */
   }
 
-  function clearHistory(){
-    setState( prev => {
-      localStorage.removeItem('history')
+  function clearHistory() {
+    setState((prev) => {
+      localStorage.removeItem("history");
       return {
         ...prev,
         history: [],
-      }
-    }
-    )}
+      };
+    });
+  }
 
   return (
     <div className="App">
-      <Header handleSubmit={handleSubmit} history={state.history} clearHistory={clearHistory}/>
-      <div className="app__body">
-        <Main
-          selectedVideo={state.selectedVideo}
-          handleFavourite={handleFavourite}
-          favourites={state.favourites}
+      <Router>
+        <Header
+          handleSubmit={handleSubmit}
+          history={state.history}
+          clearHistory={clearHistory}
         />
+        <Switch>
+          <Route
+            path="/detail"
+            render={(props) => {
+              return (
+/*                 <VideoDetail
+                item={state.selectedVideo}
+                handleFavourite={handleFavourite}
+                favourites={state.favourites}
+              /> */
+                <Main
+                  selectedVideo={state.selectedVideo}
+                  handleFavourite={handleFavourite}
+                  favourites={state.favourites}
+                />
+              );
+            }}
+          ></Route>
+          <Route path="/search">
+            <Search
+              videos={state.videos}
+              handleVideoSelect={handleVideoSelect}
+              favourites={state.favourites}
+              handleFavourite={handleFavourite}
+            />
+          </Route>
+          <Route exact path="/">
+            {/* render(()=>{}) */}
+            <Home
+              videos={state.videos  }
+              handleVideoSelect={handleVideoSelect}
+              favourites={state.favourites}
+              handleFavourite={handleFavourite}
+            />
+          </Route>
+        </Switch>
+      </Router>
+      {/*       
+      <div className="app__body">
+
         <Aside
           videos={state.videos}
           handleVideoSelect={handleVideoSelect}
           favourites={state.favourites}
           handleFavourite={handleFavourite}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
