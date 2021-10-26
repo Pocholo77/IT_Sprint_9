@@ -2,14 +2,14 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import Youtube from "./api/Youtube";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Detail from "./pages/Detail/Detail";
+import DetailPage from "./pages/DetailPage/DetailPage";
 import Header from "./components/Header/Header";
-import Search from "./pages/Search/Search";
-import Home from "./pages/Home/Home";
+import HomePage from "./pages/HomePage/HomePage";
 import Main from "./components/Main/Main";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
 import AsideNav from "./components/AsideNav/AsideNav";
 import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 // channelId: UCS5QCj182uoBgpVLDckbL3g
 
 export default function App() {
@@ -116,7 +116,7 @@ export default function App() {
             path="/detail"
             render={(props) => {        // -----------------------> Check this ########################
               return (
-                <Detail
+                <DetailPage
                   item={state.selectedVideo}
                   handleFavourite={handleFavourite}
                   favourites={state.favourites}
@@ -138,7 +138,7 @@ export default function App() {
             />
           </Route>
           <Route path="/search">
-            <Search
+            <SearchPage
               videos={state.videos}
               handleVideoSelect={handleVideoSelect}
               favourites={state.favourites}
@@ -147,7 +147,7 @@ export default function App() {
           </Route>
           <Route exact path="/">
             {/* render(()=>{}) */}
-            <Home
+            <HomePage
               videos={state.videos}
               handleVideoSelect={handleVideoSelect}
               favourites={state.favourites}
