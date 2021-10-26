@@ -2,20 +2,21 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import Youtube from "./api/Youtube";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
- 
+import Detail from "./pages/Detail/Detail";
 import Header from "./components/Header/Header";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
 import Main from "./components/Main/Main";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
+import AsideNav from "./components/AsideNav/AsideNav";
+import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
 // channelId: UCS5QCj182uoBgpVLDckbL3g
 
 export default function App() {
-   
   const [state, setState] = useState({
     videos: [],
     selectedVideo: null,
-    favourites: JSON.parse(localStorage.getItem("favouritesVids")) || [],
+    favourites: JSON.parse(localStorage.getItem("favourites")) || [],
     history: JSON.parse(localStorage.getItem("history")) || [],
   });
 
@@ -57,7 +58,6 @@ export default function App() {
       };
     });
 
-    /* history.push("/detail") */
     //console.log(state.videos)
     /*  console.log(history); */
   }
@@ -67,14 +67,14 @@ export default function App() {
     setState((prev) => {
       if (prev.favourites.find((vid) => vid === id)) {
         const restFavourites = prev.favourites.filter((vid) => vid !== id);
-        localStorage.setItem("favouriteVids", JSON.stringify(restFavourites));
+        localStorage.setItem("favourites", JSON.stringify(restFavourites));
         return {
           ...prev,
           favourites: restFavourites,
         };
       } else {
         const favVideo = [...prev.favourites, id];
-        localStorage.setItem("favouriteVids", JSON.stringify(favVideo));
+        localStorage.setItem("favourites", JSON.stringify(favVideo));
         return {
           ...prev,
           favourites: favVideo,
@@ -114,21 +114,29 @@ export default function App() {
         <Switch>
           <Route
             path="/detail"
-            render={(props) => {
+            render={(props) => {        // -----------------------> Check this ########################
               return (
-/*                 <VideoDetail
-                item={state.selectedVideo}
-                handleFavourite={handleFavourite}
-                favourites={state.favourites}
-              /> */
-                <Main
-                  selectedVideo={state.selectedVideo}
+                <Detail
+                  item={state.selectedVideo}
                   handleFavourite={handleFavourite}
                   favourites={state.favourites}
                 />
+                /*                 <Main
+                  selectedVideo={state.selectedVideo}
+                  handleFavourite={handleFavourite}
+                  favourites={state.favourites}
+                /> */
               );
             }}
           ></Route>
+          <Route path="/favourites">
+            <FavouritesPage
+              /* videos={state.videos}     no hace falta*/
+              handleVideoSelect={handleVideoSelect}
+              favourites={state.favourites}
+              handleFavourite={handleFavourite}
+            />
+          </Route>
           <Route path="/search">
             <Search
               videos={state.videos}
@@ -140,7 +148,7 @@ export default function App() {
           <Route exact path="/">
             {/* render(()=>{}) */}
             <Home
-              videos={state.videos  }
+              videos={state.videos}
               handleVideoSelect={handleVideoSelect}
               favourites={state.favourites}
               handleFavourite={handleFavourite}
