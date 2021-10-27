@@ -1,0 +1,15 @@
+.DetailPage__container{
+    display: flex;
+}
+.DetailPage__container ul{
+    list-style-type: none;
+}
+
+.videoItem__container{
+   height:94px;
+   width: 400px;
+}
+.videoItem__container h5{
+    color: #606060;
+    font-size: 10px;
+}

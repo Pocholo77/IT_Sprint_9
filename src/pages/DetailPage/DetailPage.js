@@ -1,19 +1,14 @@
-import React from 'react'
-import { useLocation } from "react-router-dom";
-import VideoList from '../../components/VideoList/VideoList';
-import Main from '../../components/Main/Main';
-import VideoDetail from "../../components/VideoDetail/VideoDetail"
-import './DetailPage.css'
-import AsideNav from '../../components/AsideNav/AsideNav';
+import React from "react";
+import VideoList from "../../components/VideoList/VideoList";
+import VideoDetail from "../../components/VideoDetail/VideoDetail";
+import "./DetailPage.css";
 
-export default function Detail(props){
-    /* console.log('DetailsPage:', props) */
-    return (
-       
-        <div className="">
-            <AsideNav />
-            <VideoDetail {...props} />
-            {/*   aside */}
-        </div>
-    )
+export default function Detail(props) {
+  /* console.log('DetailsPage:', props) */
+  return (
+    <div className="DetailPage__container">
+      <VideoDetail {...props} />
+      <VideoList {...props} />
+    </div>
+  );
 }
