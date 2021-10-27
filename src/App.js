@@ -5,12 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
-import Main from "./components/Main/Main";
-import VideoDetail from "./components/VideoDetail/VideoDetail";
-import AsideNav from "./components/AsideNav/AsideNav";
 import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
-// channelId: UCS5QCj182uoBgpVLDckbL3g
+ 
 
 export default function App() {
   const [state, setState] = useState({
@@ -36,7 +33,7 @@ export default function App() {
     })();
   }, []);
 
-  //«handleSubmit» i «handleVideoSelect»:
+ 
   async function handleSubmit(e) {
     e.preventDefault();
     const value = e.target.elements[0].value;
@@ -59,7 +56,6 @@ export default function App() {
     });
 
     //console.log(state.videos)
-    /*  console.log(history); */
   }
 
   function handleFavourite(id) {
@@ -113,22 +109,16 @@ export default function App() {
         />
         <Switch>
           <Route
-            path="/detail"
-            render={(props) => {        // -----------------------> Check this ########################
-              return (
+            path="/detail">
                 <DetailPage
+                  videos={state.videos} 
                   item={state.selectedVideo}
                   handleFavourite={handleFavourite}
                   favourites={state.favourites}
+                  handleVideoSelect={handleVideoSelect}
                 />
-                /*                 <Main
-                  selectedVideo={state.selectedVideo}
-                  handleFavourite={handleFavourite}
-                  favourites={state.favourites}
-                /> */
               );
-            }}
-          ></Route>
+         </Route>
           <Route path="/favourites">
             <FavouritesPage
               /* videos={state.videos}     no hace falta*/
@@ -156,16 +146,6 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
-      {/*       
-      <div className="app__body">
-
-        <Aside
-          videos={state.videos}
-          handleVideoSelect={handleVideoSelect}
-          favourites={state.favourites}
-          handleFavourite={handleFavourite}
-        />
-      </div> */}
     </div>
   );
 }
