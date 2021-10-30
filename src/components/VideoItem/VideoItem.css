@@ -7,10 +7,10 @@
     max-width: 150px;
 }
 .videoItem__container__img{
-     background-position: center;
+/*      background-position: center;
      background-repeat: no-repeat;
-     background-size: cover;
-     width:400px ;
+     background-size: cover; */
+     width:100%;
      height: auto;
 
 }

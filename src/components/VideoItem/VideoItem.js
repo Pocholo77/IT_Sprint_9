@@ -22,14 +22,14 @@ export default function VideoItem({
           history.push({ pathname: `/detail`, data: "id" });
         }
       }}
-    >
-      <div
+    >   
+      <div 
         className="videoItem__container__img"
-        style={{
+/*         style={{
           backgroundImage: `url(${item.snippet.thumbnails.default.url})`,
-        }}
+        }} */
         alt=""
-      ></div>
+      ><img src={item.snippet.thumbnails.default.url} alt=""/></div>
       <div>
         <h4>{title}</h4>
         <h5>{channelTitle}</h5>
