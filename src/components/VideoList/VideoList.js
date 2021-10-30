@@ -7,7 +7,7 @@ import VideoItem from "../VideoItem/VideoItem";
 export default function VideoList({ videos, handleVideoSelect, favourites, handleFavourite, type="list"}) {
   /* console.log(videos) */
   return (
-    <div>
+    <div className="videoList-container">
       <ul className={type}>
         {videos.map((vid, index) => {
           return (
