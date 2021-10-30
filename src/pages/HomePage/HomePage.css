@@ -1,7 +1,17 @@
 main{
     display: flex;
 }
+main .videoList-container{
+    margin-left: 20px;
+}
+/*----------------------------------------- VideoItem */
+main .videoItem__container{
+    width: 318px;
+    height:175px;
+    display:flex;
+    flex-direction: column;
+}
+/* 
+main .videoItem__container div .videoItem__container__img{
 
-
-
- 
+} */
