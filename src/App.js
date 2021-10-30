@@ -46,12 +46,17 @@ export default function App() {
     });
 
     setState((prev) => {
+      console.log('prev:', prev)
+      if(prev.history.length === 3){
+        prev.history.shift();
+      }
       const hist = [...prev.history, value];
-      localStorage.setItem("history", JSON.stringify(hist));
+      const histReversed = hist.reverse();
+      localStorage.setItem("history", JSON.stringify(histReversed));
       return {
         ...prev,
         videos: response.data?.items,
-        history: hist,
+        history: histReversed,
       };
     });
 
