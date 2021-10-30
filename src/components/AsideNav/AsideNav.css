@@ -1,0 +1,21 @@
+.asideNav-container{
+    margin-top: 10px;
+}
+.asideNav-container a{
+    text-decoration: none;
+}
+.asideNav-container p{
+    color:#030303;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+.asideNav__link-container{
+    display: flex;
+}
+.asideNav__link-container img{
+    height: 16px;
+    margin-left: 10px;
+}
+.asideNav__link__name{
+    margin-left: 20px;
+}
