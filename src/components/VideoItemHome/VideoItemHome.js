@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import "./VideoItemHome.css";
 
-export default function VideoItem({
+export default function VideoItemHome({
   item,
   onClick,
   favourites,
@@ -15,7 +15,7 @@ export default function VideoItem({
 
   return (
     <div
-      className="videoItem__container"
+      className="videoItemHome__container"
       onClick={(e) => {
         if (e.target.tagName !== "svg") {
           onClick(item);
@@ -24,7 +24,7 @@ export default function VideoItem({
       }}
     >   
       <div 
-        className="videoItem__container__img"
+        className="videoItemHome__container__img"
 /*         style={{
           backgroundImage: `url(${item.snippet.thumbnails.default.url})`,
         }} */

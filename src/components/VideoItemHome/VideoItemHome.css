@@ -1,25 +1,26 @@
-.videoItem__container{
+.videoItemHome__container{
     display: flex;
-    margin: 10px;
+    margin: 0.60rem;
 }
-.videoItem__container div{
-    padding: 5px;
-    max-width: 150px;
+.videoItemHome__container div{
+    padding: 0.30rem;
+    max-width: 9.37rem;
 }
-.videoItem__container__img{
-/*      background-position: center;
+.videoItemHome__container__img{
+/*   background-position: center;
      background-repeat: no-repeat;
      background-size: cover; */
      width:100%;
      height: auto;
 
 }
-.videoItem__container h4{
-    font-size: 13px;
+.videoItemHome__container h4{
+    font-size: 0.80rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap; 
 }
-.videoItem__container h5{
+.videoItemHome__container h5{
+    font-size: 0.60rem;
     color: rgb(134, 128, 128);
 }
