@@ -8,7 +8,7 @@ export default function HomePage(props) {
     return (
         <main>
             <AsideNav />
-            <VideoList {...props} type="grid" />
+            <VideoList {...props} type="grid" itemConfig={{ layout:'column', image:'medium' }}/>
         </main>
     )
 }
