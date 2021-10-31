@@ -1,25 +1,22 @@
-.searchPage__container{
-    display: flex;
+.searchPage__container {
+  display: flex;
 }
-.searchPage__container .videoItem__container{
-    height: 200px;
-    width: 800px;
-}
-
-.searchPage__videos-container ul{
-    list-style-type: none;
+.searchPage__container .videoItem__container {
+  height: 200px;
+  width: 800px;
 }
 
-.searchPage__videos-container .list li .videoItem__container{
-    display: flex;
-    justify-content: center;
-    height: 150px;
-    width:630px;
+.searchPage__videos-container ul {
+  list-style-type: none;
 }
-.videoItem__container__img{
-    width: 300px ;
+.searchPage__videos-container ul li {
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+}
+.searchPage__videos-container .list li .videoItem__container {
+  display: flex;
 }
 
-.videoItem__container h5{
-    font-size: 9px;
+.videoItem__container h5 {
+  font-size: 9px;
 }

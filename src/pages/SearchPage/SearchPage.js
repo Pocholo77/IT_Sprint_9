@@ -8,7 +8,7 @@ export default function SearchPage(props) {
     <div className="searchPage__container">
       <AsideNav />
       <div className="searchPage__videos-container">
-        <VideoList {...props} />
+        <VideoList {...props} itemConfig={{ layout:'row', image:'medium' }} /* type="grid" */ />
       </div>
     </div>
   );
