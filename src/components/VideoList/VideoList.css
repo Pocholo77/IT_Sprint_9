@@ -4,5 +4,11 @@
 ul.grid{
     display:flex;
     flex-wrap: wrap;
+/*     display: grid;
+    grid-template-columns: 3 , 1fr ; */
     list-style-type: none;
+    width: 100%;
+}
+ul.grid .item-list{
+    width: 21rem;
 }
