@@ -1,25 +1,24 @@
-.videoItem__container{
-    display: flex;
-    margin: 10px;
+.videoItem__container {
+  display: flex;
+  margin: 0.62rem;
 }
-.videoItem__container div{
-    padding: 5px;
-    max-width: 150px;
+.videoItem__container.row {
+  display: flex;
+  flex-direction: row;
 }
-.videoItem__container__img{
-/*      background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover; */
-     width:100%;
-     height: auto;
 
+.videoItem__container.column {
+  display: flex;
+  flex-direction: column;
 }
-.videoItem__container h4{
-    font-size: 13px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap; 
+.videoItem__container h4 {
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  /*  max-width: 25%; */
 }
 .videoItem__container h5{
-    color: rgb(134, 128, 128);
+  color: rgb(134, 128, 128);
+ 
 }

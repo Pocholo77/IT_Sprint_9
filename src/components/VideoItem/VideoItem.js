@@ -7,6 +7,7 @@ export default function VideoItem({
   onClick,
   favourites,
   handleFavourite,
+  config = {},
 }) {
   const history = useHistory();
 
@@ -15,21 +16,26 @@ export default function VideoItem({
 
   return (
     <div
-      className="videoItem__container"
+      className={`videoItem__container ${config.layout || "row"}`}
       onClick={(e) => {
         if (e.target.tagName !== "svg") {
           onClick(item);
           history.push({ pathname: `/detail`, data: "id" });
         }
       }}
-    >   
-      <div 
+    >
+      <div
         className="videoItem__container__img"
-/*         style={{
+        /*         style={{
           backgroundImage: `url(${item.snippet.thumbnails.default.url})`,
         }} */
         alt=""
-      ><img src={item.snippet.thumbnails.default.url} alt=""/></div>
+      >
+        <img
+          src={item.snippet.thumbnails[config.image || "default"].url}
+          alt=""
+        />
+      </div>
       <div>
         <h4>{title}</h4>
         <h5>{channelTitle}</h5>
