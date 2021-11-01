@@ -1,3 +1,4 @@
+![YT]{./img/readMeImage.png}
 # Web based on YouTube
 This project is my last project for mentoring IT academy react course , created with [Create React App](https://github.com/facebook/create-react-app).
 
