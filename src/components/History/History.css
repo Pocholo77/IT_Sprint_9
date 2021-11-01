@@ -7,15 +7,15 @@
 }
 .history-list__item{
 
-    min-width: 50px;
-    margin: 5px;
-    padding: 5px 5px;
+    min-width: 3.13rem;
+    margin: 0.31rem;
+    padding: 0.31rem 0.31rem;
     background-color: #f0f0f0 ;
     border: 1px solid #c4bebe;
-    border-radius: 16px;
+    border-radius: 1rem;
     text-align: center;
-    font-size: 10px;
+    font-size: 0.62rem;
 }
 .history-list__button{
-    margin: 5px 
+    margin: 0.31rem 
 }

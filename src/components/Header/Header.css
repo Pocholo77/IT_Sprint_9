@@ -1,6 +1,6 @@
 header{
     height: 10%;
-    padding: 0 10px
+    padding: 0 0.62rem
 }
 .header-container {
     display: flex;
@@ -8,7 +8,7 @@ header{
     align-items: center;
 }
 .header__logo__img {
-    height: 50px;
+    height: 3.12rem;
 }
 
 .header__search{
@@ -29,8 +29,8 @@ header{
      
 }
 .header__user-buttons > ul > li {
-    margin: 0 3px;
+    margin: 0 0.19rem;
 } 
 .header__user-buttons__icons {
-    height: 18px;    
+    height: 1.12rem;    
 }

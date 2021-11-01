@@ -1,5 +1,5 @@
 .asideNav-container{
-    margin-top: 10px;
+    margin-top: 0.62rem;
 }
 .asideNav-container a{
     text-decoration: none;
@@ -13,9 +13,9 @@
     display: flex;
 }
 .asideNav__link-container img{
-    height: 16px;
-    margin-left: 10px;
+    height: 1rem;
+    margin-left: 0.62rem;
 }
 .asideNav__link__name{
-    margin-left: 20px;
+    margin-left: 1.25rem;
 }

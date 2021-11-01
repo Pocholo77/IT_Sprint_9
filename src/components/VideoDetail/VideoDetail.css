@@ -1,33 +1,33 @@
-.videoDetail__container{
-    margin-left:24px;
-    padding: 24px 24px 0 0;
+.videoDetail__container {
+  margin-left: 1.5rem;
+  padding: 1.5rem 1.5rem 0 0;
 }
 /*---------------------------------------------------video info */
-.videoDetail__container h2{
-    font-size: 18px;
-    color: #030303
+.videoDetail__container h2 {
+  font-size: 1.12rem;
+  color: #030303;
 }
-.videoDetail__container p{
-    font-size: 14px;
+.videoDetail__container p {
+  font-size: 0.87rem;
 }
-.videoDetail__container__video__info{
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0 10px 0;
+.videoDetail__container__video__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.31rem;
 }
 /*---------------------------------------------------channel info */
-.videoDetail__container__channel{
-    display: flex;
-    flex-direction: column;
+.videoDetail__container__channel {
+  display: flex;
+  flex-direction: column;
 }
-.videoDetail__container__channel__title{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.videoDetail__container__channel__title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.62rem;
 }
-.videoDetail__container__channel__button{
-    height: 30px;
+.videoDetail__container__channel__button {
+  height: 1.87rem;
 }
-.videoDetail__container__channel p{
-    margin: 10px 0;
+.videoDetail__container__channel p {
+  margin: 0.62rem 0;
 }

@@ -2,8 +2,8 @@
   display: flex;
 }
 .searchPage__container .videoItem__container {
-  height: 200px;
-  width: 800px;
+  height: 12.5rem;
+  width: 50rem;
 }
 
 .searchPage__videos-container ul {
@@ -18,5 +18,5 @@
 }
 
 .videoItem__container h5 {
-  font-size: 9px;
+  font-size: 0.56rem;
 }
