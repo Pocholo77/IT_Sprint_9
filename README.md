@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Web based on YouTube
+This project is my last project for mentoring IT academy react course , created with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Using techs as Axios ( calling up Google Youtube Api), React routing and plain Css. Trying to replicate YT components.
 
 ## Available Scripts
 
