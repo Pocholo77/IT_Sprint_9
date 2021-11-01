@@ -1,4 +1,5 @@
-![YT]{./img/readMeImage.png}
+![readMeImage](https://user-images.githubusercontent.com/59293758/139612987-0e4237b7-135e-43df-8114-87e618895c13.png)
+
 # Web based on YouTube
 This project is my last project for mentoring IT academy react course , created with [Create React App](https://github.com/facebook/create-react-app).
 
