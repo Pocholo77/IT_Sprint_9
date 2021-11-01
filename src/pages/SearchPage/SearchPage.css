@@ -11,7 +11,7 @@
 }
 .searchPage__videos-container ul li {
   margin-left: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0.8rem;
 }
 .searchPage__videos-container .list li .videoItem__container {
   display: flex;

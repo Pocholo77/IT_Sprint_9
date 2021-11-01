@@ -1,11 +1,12 @@
 /* _ul.list{
-
+ ?
 } */
+.videoList-container{
+    margin-top: 0.9rem;
+}
 ul.grid{
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-/*     display: grid;
-    grid-template-columns: 3 , 1fr ; */
     list-style-type: none;
     width: 100%;
 }

@@ -36,7 +36,7 @@ export default function VideoItem({
           alt=""
         />
       </div>
-      <div>
+      <div className="videoItem__container__info">
         <h4>{title}</h4>
         <h5>{channelTitle}</h5>
         <svg
