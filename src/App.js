@@ -7,7 +7,6 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import { FavouritesPage } from "./pages/FavouritesPage/FavouritesPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
- 
 
 export default function App() {
   const [state, setState] = useState({
@@ -33,7 +32,6 @@ export default function App() {
     })();
   }, []);
 
- 
   async function handleSubmit(e) {
     e.preventDefault();
     const value = e.target.elements[0].value;
@@ -46,17 +44,16 @@ export default function App() {
     });
 
     setState((prev) => {
-      console.log('prev:', prev)
-      if(prev.history.length === 3){
-        prev.history.shift();
+      let hist = prev.history;
+      if (hist.length >= 10) {
+        hist.pop();
       }
-      const hist = [...prev.history, value];
-      const histReversed = hist.reverse();
-      localStorage.setItem("history", JSON.stringify(histReversed));
+      hist.splice(0, 0, value);
+      localStorage.setItem("history", JSON.stringify(hist));
       return {
         ...prev,
         videos: response.data?.items,
-        history: histReversed,
+        history: hist,
       };
     });
 
@@ -113,17 +110,16 @@ export default function App() {
           clearHistory={clearHistory}
         />
         <Switch>
-          <Route
-            path="/detail">
-                <DetailPage
-                  videos={state.videos} 
-                  item={state.selectedVideo}
-                  handleFavourite={handleFavourite}
-                  favourites={state.favourites}
-                  handleVideoSelect={handleVideoSelect}
-                />
-              );
-         </Route>
+          <Route path="/detail">
+            <DetailPage
+              videos={state.videos}
+              item={state.selectedVideo}
+              handleFavourite={handleFavourite}
+              favourites={state.favourites}
+              handleVideoSelect={handleVideoSelect}
+            />
+            );
+          </Route>
           <Route path="/favourites">
             <FavouritesPage
               /* videos={state.videos}     no hace falta*/
