@@ -60,22 +60,26 @@ export default function App() {
     //console.log(state.videos)
   }
 
-  function handleFavourite(id) {
-    /* console.log(id) */
+  function handleFavourite(item) {
+    console.log(item);
+    const id = item.id.videoId;
+    /* console.log({id}) */
     setState((prev) => {
-      if (prev.favourites.find((vid) => vid === id)) {
-        const restFavourites = prev.favourites.filter((vid) => vid !== id);
-        localStorage.setItem("favourites", JSON.stringify(restFavourites));
+      if (state.favourites.find((vid) => vid.id.videoId === id)) {
+        const restFavouritesVids = state.favourites.filter(
+          (vid) => vid.id.videoId !== id
+        );
+        localStorage.setItem("favourites", JSON.stringify(restFavouritesVids));
         return {
           ...prev,
-          favourites: restFavourites,
+          favourites: restFavouritesVids,
         };
       } else {
-        const favVideo = [...prev.favourites, id];
-        localStorage.setItem("favourites", JSON.stringify(favVideo));
+        const favouriteVids = [...prev.favourites, item];
+        localStorage.setItem("favourites", JSON.stringify(favouriteVids));
         return {
           ...prev,
-          favourites: favVideo,
+          favourites: favouriteVids,
         };
       }
     });
@@ -118,7 +122,6 @@ export default function App() {
               favourites={state.favourites}
               handleVideoSelect={handleVideoSelect}
             />
-            );
           </Route>
           <Route path="/favourites">
             <FavouritesPage

@@ -2,20 +2,19 @@ import React from "react";
 import "./VideoList.css";
 import VideoItem from "../VideoItem/VideoItem";
 
-
 export default function VideoList({
   videos,
   handleVideoSelect,
   favourites,
   handleFavourite,
   type = "list",
-  itemConfig
+  itemConfig,
+  src,
 }) {
-  /* console.log(videos) */
   return (
     <div className="videoList-container">
       <ul className={type}>
-        {videos.map((vid, index) => {
+        {src.map((vid, index) => {
           return (
             <li className="item-list" key={`${vid.id.videoId}${index}`}>
               <VideoItem

@@ -23,8 +23,8 @@ export default function VideoDetail({ item, handleFavourite, favourites }) {
       <div className="videoDetail__container__video__info">
         <p>{publishTime}</p>
         <svg
-          fill={favourites.find((fav) => fav === id) ? "black" : "grey"}
-          onClick={() => handleFavourite(id)}
+          fill={favourites.find((fav) => fav.id.videoId === id) ? "black" : "grey"}
+          onClick={() => handleFavourite(item)}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"

@@ -40,8 +40,8 @@ export default function VideoItem({
         <h4>{title}</h4>
         <h5>{channelTitle}</h5>
         <svg
-          fill={favourites.find((fav) => fav === id) ? "black" : "grey"}
-          onClick={() => handleFavourite(id)}
+          fill={favourites.find((fav) => fav.id.videoId === id) ? "black" : "grey"}
+          onClick={() => handleFavourite(item)}
           xmlns="http://www.w3.org/2000/svg"
           width="18"
           height="18"
